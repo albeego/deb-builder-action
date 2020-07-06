@@ -1,0 +1,19 @@
+name: "DEB Builder action"
+description: "Build .deb packages for installing in debian and its derivatives"
+author: "Steven Leadbeater <info@ledsysconsultancy.com>"
+inputs:
+  execution_path:
+    description: 'Sub directory in which to execute the action (defaults to the repository root)'
+    required: true
+    default: '.'
+  package_name:
+    description: 'The name of the deb package to produce'
+    required: true
+
+branding:
+  icon: "anchor"
+  color: "blue"
+
+runs:
+  using: docker
+  image: docker://albeego/deb-builder-action:0.0.1
