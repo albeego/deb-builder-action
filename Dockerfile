@@ -10,4 +10,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install \
 	build-essential \
 	lintian -y
 COPY entrypoint.sh /entrypoint.sh
+RUN dpkg --add-architecture arm64
+RUN apt-get install build-essential crossbuild-essential-arm64
 ENTRYPOINT ["/entrypoint.sh"]
