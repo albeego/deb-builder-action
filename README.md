@@ -8,6 +8,8 @@ Build a .deb package for deploying to debian or derivatives like ubuntu. Compati
 **Required** Sub directory in which to execute the action defaults to the repository root
 ### `package_name`
 **Required** The name of the package to build
+### `target_architecture`
+**Required** Target architecure for cross packaging, defaults to amd64
 
 ## Usage
 
@@ -85,6 +87,7 @@ jobs:
       with:
         execution_path: sumbodule/build-directory
         package_name: my-awesome-package
+        target_architecture: arm64
 ```
 
 ## License

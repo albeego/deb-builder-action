@@ -12,4 +12,8 @@ echo 9 > build/"$INPUT_PACKAGE_NAME"-"$VERSION"/debian/compat
 cp -r debian/* build/"$INPUT_PACKAGE_NAME"-"$VERSION"/debian/
 sed -i "s/\$VERSION/$VERSION/g" build/"$INPUT_PACKAGE_NAME"-"$VERSION"/debian/control
 cd build/"$INPUT_PACKAGE_NAME"-"$VERSION"
-dpkg-buildpackage
+if [[ "$INPUT_TARGET_ARCHITECTURE" == "amd64" ]]; then
+  dpkg-buildpackage
+elif [[ "$INPUT_TARGET_ARCHITECTURE" == "arm64" ]]; then
+  CONFIG_SITE=/etc/dpkg-cross/cross-config.amd64 DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -aarm64 -Pcross,nocheck
+fi
