@@ -9,9 +9,6 @@ inputs:
   package_name:
     description: 'The name of the deb package to produce'
     required: true
-  version:
-    description: 'The version number of the deb package to produce'
-    required: true
   target_architecture:
     description: 'Target architecure for cross packaging, defaults to amd64'
     required: true

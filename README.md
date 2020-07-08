@@ -84,14 +84,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set release version
-      run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/*/}
     - name: Build deb package
       uses:  albeego/deb-builder-action@master
       with:
         execution_path: sumbodule/build-directory
         package_name: my-awesome-package
-        version: ${{ env.RELEASE_VERSION }}
         target_architecture: arm64
 ```
 
