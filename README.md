@@ -1,4 +1,4 @@
-# GitHub Action for deploying packages to a Signed APT repository
+# GitHub Action for building `.deb` packages
 
 Build a .deb package for deploying to debian or derivatives like ubuntu. Compatible with systemd unit installation as part of the produced package
 
