@@ -1,6 +1,9 @@
 # GitHub Action for building `.deb` packages
 
-Build a .deb package for deploying to debian or derivatives like ubuntu. Compatible with systemd unit installation as part of the produced package
+Build a .deb package for deploying to debian or derivatives like ubuntu. Compatible with systemd unit installation as part of the produced package.
+
+This action only works with annotated tags in git, this is because it will build the changelog file for you from the git history using the tags, with the annotated messages as the descriptions of the changes
+
 
 ## Inputs
 

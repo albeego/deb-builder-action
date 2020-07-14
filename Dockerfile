@@ -7,9 +7,6 @@ RUN yes "" | add-apt-repository ppa:git-core/ppa && apt update && yes "y" | apt 
 RUN apt install -y crossbuild-essential-arm64 debhelper
 RUN DEBIAN_FRONTEND=noninteractive apt-get install \
 	devscripts \
-	build-essential \
 	lintian -y
 COPY entrypoint.sh /entrypoint.sh
-RUN dpkg --add-architecture arm64
-RUN apt-get install build-essential crossbuild-essential-arm64
 ENTRYPOINT ["/entrypoint.sh"]
