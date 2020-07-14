@@ -17,8 +17,8 @@ This action only works with annotated tags in git, this is because it will build
 **Required** Target architecure for cross packaging, defaults to amd64
 
 ## Usage
+To build a deb package, you will need to include a debian folder in the root of your repository. If you are targeting a sub module or single directory within your repo for your precedeeding build, point the `execution_path` at this target and place the debian folder in it. This should contain the following files:
 
-To build a deb package, you will need to include a debian folder in the `execution_path` directory of your project. This should contain the following files:
 
 ### `control`
 There is a lot of information that is stored in the control file describing the package, you can see the documentation here: https://www.debian.org/doc/debian-policy/ch-controlfields.html As a starting point:
