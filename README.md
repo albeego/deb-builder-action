@@ -51,7 +51,19 @@ This file specifies whether the package applies to debian solely or is useful fo
 3.0 (native)
 ``` 
 This is debian only
-### SystemD unit installations
+### `rules`
+The rules file controls the build sequence itself, `dpkg-buildpackage` is called by this action which will in turn call `dh` (debhelper) commands. The rules file provides control over how this is done
+#### Standard rules file
+The standard rules file is very simple, it boils down to a a single call to `dh` (debhelper)
+```shell script
+#!/usr/bin/make -f
+
+PKGDIR=debian/tmp
+
+%:
+	dh $@
+```
+#### SystemD unit installations
 Include your unit file in the debian directory with the rest if the files and add a `rules` file with the following contents
 ```shell script
 #!/usr/bin/make -f
