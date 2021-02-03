@@ -9,6 +9,10 @@ inputs:
   package_name:
     description: 'The name of the deb package to produce'
     required: true
+  version_prefix:
+    description: 'Any prefix on the version number that should be stripped'
+    required: true
+    default: ''
   target_architecture:
     description: 'Target architecure for cross packaging, defaults to amd64'
     required: true

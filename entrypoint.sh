@@ -4,6 +4,7 @@ set -e
 cd "$INPUT_EXECUTION_PATH"
 
 VERSION=$(git tag --sort=-taggerdate --format "%(refname:lstrip=-1)" | head -1)
+VERSION=${VERSION/$INPUT_VERSION_PREFIX}
 echo "Latest version: $VERSION"
 
 mkdir -p build/"$INPUT_PACKAGE_NAME"-"$VERSION"/debian
