@@ -13,6 +13,10 @@ inputs:
     description: 'The version number that should be used'
     required: true
     default: ''
+  tag_filter:
+    description: 'Filter passed to `git tag --list` as per https://git-scm.com/docs/git-tag#Documentation/git-tag.txt---list'
+    required: true
+    default: '*'
   target_architecture:
     description: 'Target architecure for cross packaging, defaults to amd64'
     required: true
