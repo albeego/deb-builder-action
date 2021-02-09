@@ -15,6 +15,7 @@ sed -i "s/\$INPUT_VERSION/$INPUT_VERSION/g" build/"$INPUT_PACKAGE_NAME"-"$INPUT_
 cd build/"$INPUT_PACKAGE_NAME"-"$INPUT_VERSION"
 if [[ "$INPUT_TARGET_ARCHITECTURE" == *"amd64"* ]]; then
   dpkg-buildpackage
-elif [[ "$INPUT_TARGET_ARCHITECTURE" == *"arm64"* ]]; then
+fi
+if [[ "$INPUT_TARGET_ARCHITECTURE" == *"arm64"* ]]; then
   CONFIG_SITE=/etc/dpkg-cross/cross-config.amd64 DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -aarm64 -Pcross,nocheck
 fi
