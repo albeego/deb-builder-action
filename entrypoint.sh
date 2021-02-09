@@ -4,7 +4,6 @@ set -e
 cd "$INPUT_EXECUTION_PATH"
 
 echo "Latest version: $INPUT_VERSION"
-rm -rf build/*
 mkdir -p build/"$INPUT_PACKAGE_NAME"-"$INPUT_VERSION"/debian
 git tag --list "$INPUT_TAG_FILTER" --sort=-authordate --sort=-refname \
     --format "$INPUT_PACKAGE_NAME (%(refname:lstrip=-1)) UNRELEASED; urgency=medium%0a%0a  * %(subject)%0a%0a -- %(authorname) %(authoremail)  %(authordate:rfc2822)" \
