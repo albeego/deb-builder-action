@@ -11,7 +11,6 @@ git tag --list "$INPUT_TAG_FILTER" --sort=-authordate \
     > build/"$INPUT_PACKAGE_NAME"-"$INPUT_VERSION"/debian/changelog
 echo 9 > build/"$INPUT_PACKAGE_NAME"-"$INPUT_VERSION"/debian/compat
 cp -r debian/* build/"$INPUT_PACKAGE_NAME"-"$INPUT_VERSION"/debian/
-sed -i "s/\$INPUT_VERSION/$INPUT_VERSION/g" build/"$INPUT_PACKAGE_NAME"-"$INPUT_VERSION"/debian/control
 cd build/"$INPUT_PACKAGE_NAME"-"$INPUT_VERSION"
 if [[ "$INPUT_TARGET_ARCHITECTURE" == "amd64" ]]; then
   dpkg-buildpackage
