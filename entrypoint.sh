@@ -17,3 +17,5 @@ fi
 if [[ "$INPUT_TARGET_ARCHITECTURE" == *"arm64"* ]]; then
   CONFIG_SITE=/etc/dpkg-cross/cross-config.amd64 DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -aarm64 -Pcross,nocheck
 fi
+
+cp *.deb ../
